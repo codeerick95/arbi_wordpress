@@ -2,7 +2,7 @@
       <div class="container">
         <div class="arbi_info">
           <div class="logo-container">
-          	<img class="logo-img" src="<?php echo getImage('contact-img.png'); ?>" alt="Logotipo"/>
+          	<img class="logo-img" src="<?php echo getImage('logo.png'); ?>" alt="Logotipo"/>
           	<span class="logo-text">Arbi</span>
           </div>
           <p class="description">Analizamos, diseñamos y llevamos adelante proyectos web modernos.</p>

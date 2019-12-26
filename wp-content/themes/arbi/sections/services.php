@@ -1,37 +1,29 @@
+
+
+
 <section class="services" id="services">
   <div class="container">
     <h2 class="subtitle">Brindamos servicios creativos</h2>
     <div class="services-list">
-          <article class="card"><span class="icon"><i class="fas fa-paint-brush" aria-hidden="true"></i></span>
-            <h3 class="card-title">Diseño web</h3>
-            <p class="description"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, nisi.</span>
-            </p><a class="card-link" href="service.html">Leer más</a>
-          </article>
-          <article class="card"><span class="icon"><i class="fas fa-code" aria-hidden="true"></i></span>
-            <h3 class="card-title">Desarrollo web</h3>
-            <p class="description"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, nisi.</span>
-            </p><a class="card-link" href="#">Leer más</a>
-          </article>
-          <article class="card"><span class="icon"><i class="fas fa-chart-pie" aria-hidden="true"></i></span>
-            <h3 class="card-title">Marketing digital</h3>
-            <p class="description"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, nisi.</span>
-            </p><a class="card-link" href="#">Leer más</a>
-          </article>
-          <article class="card"><span class="icon"><i class="fas fa-chart-line" aria-hidden="true"></i></span>
-            <h3 class="card-title">Pocisionamiento en buscadores - Seo</h3>
-            <p class="description"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, nisi.</span>
-            </p><a class="card-link" href="#">Leer más</a>
-          </article>
-          <article class="card"><span class="icon"><i class="fas fa-pencil-ruler" aria-hidden="true"></i></span>
-            <h3 class="card-title">Diseño gráfico</h3>
-            <p class="description"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, nisi.</span>
-            </p><a class="card-link" href="#">Leer más</a>
-          </article>
-          <article class="card"><span class="icon"><i class="fas fa-tape" aria-hidden="true"></i></span>
-            <h3 class="card-title">Edición y producción de video</h3>
-            <p class="description"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, nisi.</span>
-            </p><a class="card-link" href="#">Leer más</a>
-          </article>
+        <?php 
+        $query = new WP_Query(array('post_type' => 'servicio'));
+        if ( $query->have_posts() ) : 
+
+        ?>
+          <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+            <?php $campos_adicionales = get_post_custom();?>
+            <article class="card">
+              <span class="icon">
+                <i class="<?php echo getIcon($campos_adicionales); ?>" aria-hidden="true"></i>
+              </span>
+              <h3 class="card-title"><?php the_title(); ?></h3>
+              <p class="description">
+                <span><?php the_excerpt(); ?></span>
+              </p>
+              <a class="card-link" href="<?php echo get_the_permalink(); ?>">Leer más</a>
+            </article>
+          <?php endwhile; ?>
+        <?php endif; ?>
     </div>
   </div>
 </section>

@@ -43,4 +43,10 @@ function getImage($name) {
 	return get_template_directory_uri() . '/images/' . $name;
 }
 
+// Obtener íconos de servicios
+
+function getIcon($campos_adicionales) {
+	return $campos_adicionales['icono'][0];
+}
+
 ?>
