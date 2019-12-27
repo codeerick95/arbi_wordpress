@@ -3,7 +3,9 @@
 
 <section class="services" id="services">
   <div class="container">
-    <h2 class="subtitle">Brindamos servicios creativos</h2>
+    <h2 class="subtitle">
+      Brindamos servicios creativos
+    </h2>
     <div class="services-list">
         <?php 
         $query = new WP_Query(array('post_type' => 'servicio'));
