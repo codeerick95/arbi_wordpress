@@ -34,7 +34,7 @@ if(!function_exists('arbi_scripts')) {
 	}
 }
 
-add_action('init', 'arbi_scripts');
+add_action('wp_enqueue_scripts', 'arbi_scripts');
 
 
 // Obtener imágenes estáticas
@@ -48,5 +48,18 @@ function getImage($name) {
 function getIcon($campos_adicionales) {
 	return $campos_adicionales['icono'][0];
 }
+
+// Menú
+
+if(!function_exists('arbi_menu')) {
+	function arbi_menus() {
+		register_nav_menus(array(
+			'main_menu' => __('Menú principal', 'arbi'),
+			'social_menu' => __('Menú de redes sociales', 'arbi')
+		));
+	}
+}
+
+add_action('init', 'arbi_menus');
 
 ?>
